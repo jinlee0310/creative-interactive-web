@@ -8,13 +8,13 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { PATHS } from "./constants/index.ts";
-import CountDownPage from "./pages/count-down.tsx";
 import "./index.css";
+import GooeyPage from "./pages/gooey.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route path={PATHS.countDown} element={<CountDownPage />} />
+      <Route path={PATHS.gooey} element={<GooeyPage />} />
     </Route>,
   ),
 );
