@@ -1,29 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import CountDown from "../components/count-down";
+
+import { useContainerSize } from "../hooks/useContainerSize";
 
 export default function CountDownPage() {
   const containerRef = useRef<HTMLDivElement>(null);
-
-  const [containerSize, setContainerSize] = useState({
-    width: 0,
-    height: 0,
-  });
-
-  useEffect(() => {
-    if (containerRef.current) {
-      setContainerSize({
-        width: containerRef.current.clientWidth,
-        height: containerRef.current.clientHeight,
-      });
-    }
-  }, []);
+  const { width, height } = useContainerSize(containerRef);
 
   return (
     <div ref={containerRef} style={{ width: "100%", height: "100%" }}>
-      <CountDown
-        canvasWidth={containerSize.width}
-        canvasHeight={containerSize.height}
-      />
+      <CountDown canvasWidth={width} canvasHeight={height} />
     </div>
   );
 }
