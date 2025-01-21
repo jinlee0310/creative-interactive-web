@@ -20,8 +20,6 @@ export const useCanvas = ({ canvasWidth, canvasHeight }: CanvasProps) => {
 
       canvas.style.width = canvasWidth + "px";
       canvas.style.height = canvasHeight + "px";
-
-      ctx.fillRect(10, 10, 50, 50);
     }
   }, [canvasHeight, canvasWidth]);
 
